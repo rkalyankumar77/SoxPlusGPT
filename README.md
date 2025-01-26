@@ -23,7 +23,7 @@ ollama run mistral --verbose
 
 Note that `ollama pull mistral` command should be done once to download mistral model which is 4GB size.
 
-3. Clone this project to your laptop 3. Clone this project to your laptop. I assume you'll clone it to C:\Projects directory. Use following command to clone:
+1. Clone this project to your laptop. I assume you'll clone it to C:\Projects directory. Use following command to clone:
 
 ```shell
 git clone https://github.com/rkalyankumar77/SoxPlusGPT.git
@@ -68,7 +68,7 @@ After this you can start prompting the model and play around with it.
 If you want to add more documents to train the model, copy them into `C:\Projects\SoxPlusGPT\Documents` directory and run the following command from directory `C:\Projects\SoxPlusGPT`:
 
 ```shell
-train.py
+python train.py
 ```
 
 ### Note on performance
