@@ -2,6 +2,7 @@ import os
 
 import nltk
 from langchain.chains import RetrievalQA
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import (
     PyPDFLoader,
@@ -9,11 +10,16 @@ from langchain_community.document_loaders import (
     UnstructuredWordDocumentLoader,
 )
 from langchain_community.vectorstores import OpenSearchVectorSearch
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import OllamaLLM
 
-nltk.download("punkt_tab")
-nltk.download("averaged_perceptron_tagger_eng")
+# Set custom NLTK data path
+nltk_data_dir = os.path.join(os.path.dirname(__file__), "nltk_data")
+os.environ["NLTK_DATA"] = nltk_data_dir
+os.makedirs(nltk_data_dir, exist_ok=True)
+
+# Download to custom directory
+nltk.download("punkt_tab", download_dir=nltk_data_dir)
+nltk.download("averaged_perceptron_tagger_eng", download_dir=nltk_data_dir)
 
 
 # Document loading
